@@ -6,3 +6,6 @@
    27  git config --global user.name "gopal das"
    28  git config --global user.email "gopal1409@gmail.com"
  29  git log
+#########how to do authetication to github using ssh key##########
+ 33  ssh-keygen -t rsa
+   34  cat /root/.ssh/id_rsa.pub
