@@ -9,3 +9,6 @@
 #########how to do authetication to github using ssh key##########
  33  ssh-keygen -t rsa
    34  cat /root/.ssh/id_rsa.pub
+   
+   ######once you got the public key need to be uploaded in github####
+   git push -u origin master
