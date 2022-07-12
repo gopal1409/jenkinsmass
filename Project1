@@ -14,3 +14,6 @@
    git push -u origin master
 ########copy the private key from the project folder or from the developer machine 
 cat /root/.ssh/id_rsa
+#####install maven and get the path of maven
+  43  apt install maven
+   45  mvn --version
