@@ -12,3 +12,5 @@
    
    ######once you got the public key need to be uploaded in github####
    git push -u origin master
+########copy the private key from the project folder or from the developer machine 
+cat /root/.ssh/id_rsa
