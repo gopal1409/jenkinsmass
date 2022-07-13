@@ -19,5 +19,17 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
+        stage('Unit Test') {
+            steps {
+                // Get some code from a GitHub repository
+                sh 'mvn test'
+            }
+        }
+        stage('Checkstyle test') {
+            steps {
+                // Get some code from a GitHub repository
+                sh 'mvn checkstyle:checkstyle'
+            }
+        }
     }
 }
