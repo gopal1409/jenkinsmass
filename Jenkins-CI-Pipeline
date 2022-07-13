@@ -26,11 +26,15 @@ pipeline {
                 junit 'target/surefire-reports/*.xml'
             }
         }
-        stage('Checkstyle test') {
+        stage('Codecoverage test') {
             steps {
                 // Get some code from a GitHub repository
-                sh 'mvn checkstyle:checkstyle'
-                recordIssues(tools: [checkStyle(pattern: '**/checkstyle-result.xml')])
+                jacoco()
+            }
+        }
+        stage('Codequality scan sonar') {
+            steps {
+               sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=chatapp -Dsonar.host.url=http://20.51.217.105:9000 -Dsonar.login=sqp_4428e1aaa0b17830197cc4829e592bc9cb0945f0'
             }
         }
     }
