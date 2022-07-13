@@ -13,5 +13,11 @@ pipeline {
                 git credentialsId: 'git-ssh-key', url: 'git@github.com:gopal1409/chatapp.git'
             }
         }
+        stage('Maven Build') {
+            steps {
+                // Get some code from a GitHub repository
+                sh 'mvn -B -DskipTests clean package'
+            }
+        }
     }
 }
