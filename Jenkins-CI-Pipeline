@@ -29,7 +29,8 @@ pipeline {
         stage('Checkstyle test') {
             steps {
                 // Get some code from a GitHub repository
-                jacoco()
+                sh 'mvn checkstyle:checkstyle'
+                recordIssues(tools: [checkStyle(pattern: '**/checkstyle-result.xml')])
             }
         }
     }
