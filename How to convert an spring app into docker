@@ -26,7 +26,12 @@ ENTRYPOINT ["java","-jar",/websocket-demo.jar"]
   ####in jenkins we need to authorized to use docker#####
     103  usermod -aG docker jenkins
   104  systemctl restart jenkins
-
-
-
-
+##########how to add docker insecure registry
+ 106  nano /etc/docker/daemon.json
+###############inside this file##########
+{
+  "insecure-registries" : ["20.51.217.105:8085"]
+}
+#####################then resxtart docker service and verfiy the same
+systemctl restart docker
+docker info
