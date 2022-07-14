@@ -22,6 +22,11 @@ ENTRYPOINT ["java","-jar",/websocket-demo.jar"]
  98  docker build -t chatapp .
    99  docker images
   100  docker image history chatapp
+  
+  ####in jenkins we need to authorized to use docker#####
+    103  usermod -aG docker jenkins
+  104  systemctl restart jenkins
+
 
 
 
