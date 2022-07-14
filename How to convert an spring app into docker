@@ -8,4 +8,20 @@
    88  cd target/
    89  ls
    90  cd ..
+   # to convert my application into an container based image we will create a docker file and provide instruction
+97  nano dockerfile
+#########inside the docker file 
+FROM openjdk:16-alpine3.13
+MAINTAINER jOHN cNE<john@gmail.com>
+VOLUME /tmp
+EXPOSE 8080
+ARG JAR_FILE=target/websocket-demo-0.0.1-SNAPSHOT.jar
+COPY ${JAR_FILE} websocket-demo.jar
+ENTRYPOINT ["java","-jar",/websocket-demo.jar"]
+######################the press ctrl x then press y######
+ 98  docker build -t chatapp .
+   99  docker images
+  100  docker image history chatapp
+
+
 
