@@ -19,5 +19,10 @@ pipeline {
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
                    }
             }
+        stage('build image') {
+            steps {
+                sh 'docker build -t chatapp .'
+            }
+        }
     }
 }
