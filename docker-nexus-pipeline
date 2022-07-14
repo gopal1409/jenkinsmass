@@ -1,7 +1,7 @@
 pipeline {
     environment {
         registry = '20.51.217.105:8085/chatapp'
-        registryCredentails = 'nexus-cred'
+        registryCredential = 'nexus-cred'
         dockerImage = ''
     }
     agent any
@@ -34,8 +34,10 @@ pipeline {
         stage('push nexus docker') {
             steps {
                 script {
-                    docker.withRegistry('http://20.51.217.105:8085',registryCredentials)
-                    dockerImage.push()
+                    docker.withRegistry('http://20.51.217.105:8085',registryCredential) {
+                    dockerImage.push()    
+                    }
+                    
                 }
             }
         }
