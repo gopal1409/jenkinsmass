@@ -1,0 +1,6 @@
+159  nano /etc/docker/daemon.json
+{
+  "insecure-registries" : ["myregistrydomain.com:5000"]
+}
+  160  systemctl restart docker
+  161  docker info
